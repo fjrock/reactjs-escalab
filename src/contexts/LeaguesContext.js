@@ -15,7 +15,7 @@ const LeaguesContextProvider = ({children}) => {
                 const emptyArr = new Array(0);
                 setLeagues(emptyArr);
             }else{
-                console.log(data.countrys);
+                console.log(data);
                 setLeagues(data);
             }
             
