@@ -12,14 +12,13 @@ const LeaguesContextProvider = ({children}) => {
         .then(res => res.json())
         .then(data => {
             console.log(data.countrys);
-            const {league_list} = data.countrys;
-            setLeagues(league_list);
+            //const {league_list} = data.countrys;
+            setLeagues(data);
         })
         .catch(err => console.log(err));
     }
 
     const validateC = (e, c = document.querySelector('#q_c').value.toLowerCase().trim()) => {
-        if(e.type === 'keypress' && e.key !== 'Enter') return ;
             getLeagues(c);
     }
 
