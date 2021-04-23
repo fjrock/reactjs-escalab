@@ -12,20 +12,15 @@ const LeaguesContextProvider = ({children}) => {
 
     const getCountries = () => {
 
-        
         fetch(allCountries())
         .then(res => res.json())
         .then(data => {
-            console.log(data.countries);
             setCountries(data.countries);
         })
         .catch(err => console.log(err));
     }
 
-
     const getLeagues = c => {
-        console.log(leagueSearch(c));
-        console.log('fetchc '+c);
         fetch(leagueSearch(c))
         .then(res => res.json())
         .then(data => {
@@ -33,7 +28,6 @@ const LeaguesContextProvider = ({children}) => {
                 const emptyArr = new Array(0);
                 setLeagues(emptyArr);
             }else{
-                console.log('aqui es rotttt'+data);
                 setLeagues(data);
             }
             

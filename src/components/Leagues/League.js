@@ -8,7 +8,7 @@ const League = ({ idLeague, strLeague, strSport, strLogo, strBadge }) => (
   <h3>{strLeague}</h3>
     <ul>
         <li>
-            <img alt="strBadge" src={strBadge} />
+            <img alt={strBadge} src={strBadge} />
             <strong>Name:</strong>
             <span>{strLeague}</span>
             <span>{idLeague}</span>
