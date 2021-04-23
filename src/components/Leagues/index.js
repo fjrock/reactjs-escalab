@@ -4,16 +4,17 @@ import SearchLeagues from "./SearchLeagues";
 import Leagues from "./Leagues";
 
 const CountryLeagues = () => {
-    const { leagues,validateC } = useContext(LeaguesContext);
+    const { leagues,validateC,countries } = useContext(LeaguesContext);
     return (
         <Fragment>
-            <SearchLeagues validateC={validateC} />
+            <SearchLeagues validateC={validateC} countries={countries} />
             {
-               
-               leagues.length === 0 ? (0): (
-                   //leagues.countrys.length
+               leagues.length === 0 ? 
+               (0): 
+
+               (
                     <Leagues leagues={leagues.countrys} />
-                   )
+               )
             }
         </Fragment>
     )

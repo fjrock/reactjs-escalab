@@ -9,8 +9,10 @@ const League = ({ idLeague, strLeague, strSport, strLogo, strBadge }) => (
     <ul>
         <li>
             <img alt="strBadge" src={strBadge} />
-            <strong>logo:</strong>
+            <strong>Name:</strong>
             <span>{strLeague}</span>
+            <span>{idLeague}</span>
+            
         </li>
     </ul>
   </Paper>
