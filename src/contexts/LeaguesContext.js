@@ -11,7 +11,6 @@ const LeaguesContextProvider = ({children}) => {
     useEffect(() => getCountries(), []);
 
     const getCountries = () => {
-
         fetch(allCountries())
         .then(res => res.json())
         .then(data => {
@@ -29,8 +28,7 @@ const LeaguesContextProvider = ({children}) => {
                 setLeagues(emptyArr);
             }else{
                 setLeagues(data);
-            }
-            
+            }  
         })
         .catch(err => console.log(err));
     }
