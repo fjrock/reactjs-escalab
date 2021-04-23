@@ -12,7 +12,6 @@ const [country, setCountry] = useState('');
 const handleChange = (event) => {
   setCountry(event.target.value);
 };
-//const {countries_list }= countries;
 return(
 <Paper>
     <TextField

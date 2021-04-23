@@ -11,7 +11,6 @@ const CountryLeagues = () => {
             {
                leagues.length === 0 ? 
                (0): 
-
                (
                     <Leagues leagues={leagues.countrys} />
                )
