@@ -4,19 +4,16 @@ import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Button from '@material-ui/core/Button';
 
-const League = ({ idLeague, strLeague, strSport, strLogo, strBadge }) => (
+const Teams = ({ idTeams,strTeam,strTeamBadge }) => (
 <Grid item xs={12} sm={6}>
   <Paper >
-  <h3>{strLeague}</h3>
+  <h3>{strTeam}</h3>
     <ul>
         <li>
-        <Link to={`/teamscontext/teams/${idLeague}`}>
-            <img alt={strBadge} src={strBadge} />
+            <img alt={strTeamBadge} src={strTeamBadge} />
             <strong>Name:</strong>
-            <span>{strLeague}</span>
-            <span>{idLeague}</span>
-        </Link>
-            
+            <span>{strTeam}</span>
+            <span>{strTeam}</span>
         </li>
     </ul>
     
@@ -26,4 +23,4 @@ const League = ({ idLeague, strLeague, strSport, strLogo, strBadge }) => (
 
 );
 
-export default League;
+export default Teams;
