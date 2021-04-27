@@ -7,6 +7,7 @@ const TeamsContextProvider = ({children}) => {
     const id = window.location.pathname.split("/")[3];
 
     console.log('aqui pasa el id '+id)
+    
     useEffect(() => getTeams(id), [id]);
 
     const [teams, setTeams] = useState([]);

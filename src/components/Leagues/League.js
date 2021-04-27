@@ -12,9 +12,9 @@ const League = ({ idLeague, strLeague, strSport, strLogo, strBadge }) => (
         <li>
         <Link to={`/teamscontext/teams/${idLeague}`}>
             <img alt={strBadge} src={strBadge} />
-            <strong>Name:</strong>
-            <span>{strLeague}</span>
-            <span>{idLeague}</span>
+            <strong>Type:</strong>
+            <span>{strSport}</span>
+
         </Link>
             
         </li>
