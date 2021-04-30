@@ -4,19 +4,16 @@ import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Button from '@material-ui/core/Button';
 
-const Detail = ({idTeam, strAlternate,strTeamJersey }) => (
-<Grid item xs={12} sm={6}>
+const Detail = ({idTeam, strAlternate, strTeamJersey, strDescriptionEN  }) => (
+<Grid item xs={12}>
   <Paper >
   <h3>{strAlternate}</h3>
     <ul>
         <li>
-        
-            <img alt={strTeamJersey} src={strTeamJersey} />
-            <strong>Name:</strong>
-            <span>{idTeam}</span>
-            <span>{strAlternate}</span>
             
-           
+            <img alt={strTeamJersey} src={strTeamJersey} />
+            <span>{strAlternate}</span>
+            <span>{strDescriptionEN}</span>
         </li>
     </ul>
   </Paper>

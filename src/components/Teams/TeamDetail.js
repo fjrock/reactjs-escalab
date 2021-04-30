@@ -17,7 +17,8 @@ const TeamsDetail = () => {
                       const {
                         idTeam, 
                         strAlternate,
-                        strTeamJersey 
+                        strTeamJersey,
+                        strDescriptionEN 
                          
                       }= team;
                       return (
@@ -26,6 +27,7 @@ const TeamsDetail = () => {
                           idTeam={idTeam}
                           strAlternate={strAlternate}
                           strTeamJersey={strTeamJersey}
+                          strDescriptionEN={strDescriptionEN}
                         />
                         );
                     })
