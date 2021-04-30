@@ -1,7 +1,5 @@
 import React, { Fragment, useContext } from "react";
 import { TeamContext } from "./../../contexts/TeamContext";
-import Grid from "@material-ui/core/Grid";
-import Paper from "@material-ui/core/Paper";
 import Detail from "./Detail"
 
 
@@ -18,7 +16,8 @@ const TeamsDetail = () => {
                         idTeam, 
                         strAlternate,
                         strTeamJersey,
-                        strDescriptionEN 
+                        strDescriptionEN,
+                        strStadium 
                          
                       }= team;
                       return (
@@ -28,6 +27,7 @@ const TeamsDetail = () => {
                           strAlternate={strAlternate}
                           strTeamJersey={strTeamJersey}
                           strDescriptionEN={strDescriptionEN}
+                          strStadium={strStadium}
                         />
                         );
                     })

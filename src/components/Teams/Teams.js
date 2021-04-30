@@ -6,7 +6,7 @@ const Teams = ({ teams }) => (
     <Fragment>
     <Grid container spacing={3} justify="center">
     { 
-    teams.map((team) => {
+teams.map((team) => {
     const {
         idTeam, 
         strTeam,

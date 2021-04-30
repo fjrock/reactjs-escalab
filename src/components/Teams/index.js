@@ -1,10 +1,9 @@
 import React, { Fragment, useContext } from "react";
 import { TeamsContext } from "./../../contexts/TeamsContext";
-import SearchTeams from "./SearchTeams";
 import Teams from "./Teams";
 
 const CountryTeams = () => {
-    const { teams,validateId } = useContext(TeamsContext);
+    const { teams } = useContext(TeamsContext);
     return (
         <Fragment>
             {
