@@ -4,18 +4,18 @@ import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Button from '@material-ui/core/Button';
 
-const Teams = ({ idTeam,strTeam,strTeamBadge }) => (
+const Detail = ({idTeam, strAlternate,strTeamJersey }) => (
 <Grid item xs={12} sm={6}>
   <Paper >
-  <h3>{strTeam}</h3>
+  <h3>{strAlternate}</h3>
     <ul>
         <li>
-        <Link to={`/teamcontext/team/${idTeam}`}>
-            <img alt={strTeamBadge} src={strTeamBadge} />
+        
+            <img alt={strTeamJersey} src={strTeamJersey} />
             <strong>Name:</strong>
             <span>{idTeam}</span>
-            <span>{strTeam}</span>
-            </Link>
+            <span>{strAlternate}</span>
+            
            
         </li>
     </ul>
@@ -24,4 +24,4 @@ const Teams = ({ idTeam,strTeam,strTeamBadge }) => (
 
 );
 
-export default Teams;
+export default Detail;

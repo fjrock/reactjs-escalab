@@ -5,6 +5,8 @@ import TeamsContextProvider from "./contexts/TeamsContext";
 import TeamContextProvider from "./contexts/TeamContext";
 import Leagues from "./components/Leagues";
 import Teams from "./components/Teams";
+import TeamDetail from "./components/Teams/TeamDetail";
+
 
 const App = () => (
   <BrowserRouter>
@@ -21,6 +23,7 @@ const App = () => (
       </Route>
       <Route path="/teamcontext/team/:id">
         <TeamContextProvider>
+        <TeamDetail/>
         </TeamContextProvider>
       </Route>
     </Switch>
