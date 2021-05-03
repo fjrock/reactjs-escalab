@@ -29,7 +29,7 @@ const Leagues = ({ leagues }) => (
         }
         </Grid>
     </Fragment>    
-);
+    );
 
 
 export default Leagues;

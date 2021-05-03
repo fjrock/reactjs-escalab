@@ -10,11 +10,10 @@ const Teams = ({ idTeam,strTeam,strTeamBadge }) => (
     <ul>
         <Link to={`/teamcontext/team/${idTeam}`}>
             <img alt={strTeamBadge} src={strTeamBadge} />
-            </Link>
+        </Link>
     </ul>
   </Paper>
 </Grid>
-
 );
 
 export default Teams;

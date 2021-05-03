@@ -6,11 +6,14 @@ import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
+import CardActions from '@material-ui/core/CardActions';
+import ButtonBack from '../Common/ButtonBack';
 
 const useStyles = makeStyles({
     root: {
         display: 'flex',
         flexWrap: 'wrap',
+        justifyContent: 'center'
     },
     media: {
         display: 'flex',
@@ -38,6 +41,9 @@ const Detail = ({idTeam, strAlternate, strTeamJersey, strDescriptionEN, strStadi
         </CardContent>
       </CardActionArea>
     </Card>
+    <CardActions className={classes.root}>
+    <ButtonBack id={idTeam}/>
+    </CardActions>
   </Paper>
 </Grid>
     )

@@ -6,10 +6,14 @@ import TeamContextProvider from "./contexts/TeamContext";
 import Leagues from "./components/Leagues";
 import Teams from "./components/Teams";
 import TeamDetail from "./components/Teams/TeamDetail";
+import NotFound from "./components/NotFound";
+import Header from "./components/Common/Header";
+import Footer from "./components/Common/Footer";
 
 
 const App = () => (
   <BrowserRouter>
+   <Header />
     <Switch>
       <Route exact path="/">
         <LeaguesContextProvider>
@@ -26,7 +30,9 @@ const App = () => (
         <TeamDetail/>
         </TeamContextProvider>
       </Route>
+      <Route component={NotFound} />
     </Switch>
+    <Footer />
   </BrowserRouter>
 );
 
