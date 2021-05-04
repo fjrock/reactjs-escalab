@@ -21,8 +21,7 @@ teams.map((team) => {
         strTeamBadge={strTeamBadge}
       />
       );
-  })
-    }
+  })}
     </Grid>
     </Fragment>
 )};

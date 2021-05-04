@@ -2,3 +2,17 @@
     height: 300px;
     width: 300px;
   }
+
+.rootnotfound {
+    width: '100vw';
+  }
+
+.rootdetail {
+    display: 'flex';
+    flexWrap: 'wrap';
+    justifyContent: 'center';
+}
+.mediadetail {
+    display: 'flex';
+    flexWrap: 'wrap';
+}
