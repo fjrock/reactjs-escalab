@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import Grid from "@material-ui/core/Grid";
 import Team from "./Team";
 import { useLocation } from "react-router-dom";
-import ButtonBack from "../Common/ButtonBack"
+
 
 const Teams = ({ teams }) => {
   const location = useLocation();
@@ -28,7 +28,6 @@ teams.map((team) => {
   })
     }
     </Grid>
-    <ButtonBack id={location} />
     </Fragment>
    
 )};

@@ -1,5 +1,5 @@
 import React from 'react';
-import ButtonBack from '../Common/ButtonBack';
+import ButtonBackHome from '../Common/ButtonBackHome';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -30,7 +30,7 @@ const NotFound = () => {
         </CardContent>
       </CardActionArea>
       <CardActions>
-      <ButtonBack/> 
+      <ButtonBackHome/> 
       </CardActions>
     </Card>
     

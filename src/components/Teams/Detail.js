@@ -7,7 +7,6 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import CardActions from '@material-ui/core/CardActions';
-import ButtonBack from '../Common/ButtonBack';
 
 const useStyles = makeStyles({
     root: {
@@ -42,7 +41,6 @@ const Detail = ({idTeam, strAlternate, strTeamJersey, strDescriptionEN, strStadi
       </CardActionArea>
     </Card>
     <CardActions className={classes.root}>
-    <ButtonBack id={idTeam}/>
     </CardActions>
   </Paper>
 </Grid>
