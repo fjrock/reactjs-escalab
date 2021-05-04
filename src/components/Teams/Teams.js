@@ -1,12 +1,8 @@
 import React, { Fragment } from "react";
 import Grid from "@material-ui/core/Grid";
 import Team from "./Team";
-import { useLocation } from "react-router-dom";
-
 
 const Teams = ({ teams }) => {
-  const location = useLocation();
-
   return(
     <Fragment>
     <Grid container spacing={3} justify="center">
@@ -29,7 +25,6 @@ teams.map((team) => {
     }
     </Grid>
     </Fragment>
-   
 )};
 
 export default Teams;
