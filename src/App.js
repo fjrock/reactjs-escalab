@@ -9,6 +9,7 @@ import TeamDetail from "./components/Teams/TeamDetail";
 import NotFound from "./components/NotFound";
 import Header from "./components/Common/Header";
 import Footer from "./components/Common/Footer";
+import "./assets/css/styles.css";
 
 
 const App = () => (
@@ -22,7 +23,7 @@ const App = () => (
       </Route>
       <Route path="/teamscontext/teams/:id">
         <TeamsContextProvider>
-          <Teams />
+          <Teams/>
         </TeamsContextProvider>
       </Route>
       <Route path="/teamcontext/team/:id">

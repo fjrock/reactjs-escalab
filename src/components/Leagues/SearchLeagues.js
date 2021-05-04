@@ -9,8 +9,8 @@ const SearchLeagues = ({validateC, countries}) => {
 
 const [country, setCountry] = useState('');  
 
-const handleChange = (event) => {
-  setCountry(event.target.value);
+const handleChange = (e) => {
+  setCountry(e.target.value);
 };
 return(
 <Paper>
@@ -22,10 +22,7 @@ return(
      margin="normal"
     >
       {countries.map((c) => (
-              <MenuItem
-                key={c.name_en}
-                value={c.name_en}
-              >
+              <MenuItem key={c.name_en} value={c.name_en}>
                 {c.name_en}
               </MenuItem>
             ))}
