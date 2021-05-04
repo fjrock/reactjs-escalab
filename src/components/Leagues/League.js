@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 
+
 const League = ({ idLeague, strLeague, strSport, strLogo, strBadge }) => {
 
   return(
@@ -11,7 +12,7 @@ const League = ({ idLeague, strLeague, strSport, strLogo, strBadge }) => {
     <h3>League : {strLeague}{strSport}</h3>
     <h3>Type: {strSport}</h3>
     <Link to={`/teamscontext/teams/${idLeague}`}>
-      <img alt={strBadge} src={strBadge} />
+      <img className="photo" alt={strBadge} src={strBadge} />
     </Link>
   </Paper>
 

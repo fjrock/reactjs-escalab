@@ -10,7 +10,7 @@ const Teams = ({ idTeam,strTeam,strTeamBadge }) => (
   <h3>{strTeam}</h3>
     <ul>
         <Link to={`/teamcontext/team/${idTeam}`}>
-            <img alt={strTeamBadge} src={strTeamBadge} />
+            <img className="photo" alt={strTeamBadge} src={strTeamBadge} />
         </Link>
     </ul>
   </Paper>

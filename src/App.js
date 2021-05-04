@@ -11,7 +11,6 @@ import Header from "./components/Common/Header";
 import Footer from "./components/Common/Footer";
 import "./assets/css/styles.css";
 
-
 const App = () => (
   <BrowserRouter>
    <Header />
