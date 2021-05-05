@@ -10,14 +10,18 @@ import NotFound from "./components/NotFound";
 import Header from "./components/Common/Header";
 import Footer from "./components/Common/Footer";
 import "./assets/css/styles.css";
+import Home from "./components/Common/Home";
 
 const App = () => (
   <BrowserRouter>
    <Header />
     <Switch>
       <Route exact path="/">
-        <LeaguesContextProvider>
-       <Leagues/>
+      <Home/>
+      </Route>
+      <Route path="/leaguescontext/countries">
+      <LeaguesContextProvider>
+         <Leagues/>
         </LeaguesContextProvider>
       </Route>
       <Route path="/teamscontext/teams/:id">
