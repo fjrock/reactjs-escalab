@@ -3,7 +3,6 @@ import { TeamContext } from "./../../contexts/TeamContext";
 import Detail from "./Detail";
 import Loading from "./../Common/Loading";
 
-
 const TeamsDetail = () => {
     const { team } = useContext(TeamContext);
     return (

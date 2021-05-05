@@ -14,7 +14,12 @@ const TeamContextProvider = ({children}) => {
         fetch(lookupTeam(id))
         .then(res => res.json())
         .then(data => {
+            if(data == null){
+            const emptyArr = new Array(0);
+            setTeam(emptyArr);
+            }else{
             setTeam(data);
+            }
         })
         .catch(err => console.log(err));
     }
