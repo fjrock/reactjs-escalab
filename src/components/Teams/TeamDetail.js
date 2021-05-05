@@ -1,6 +1,7 @@
 import React, { Fragment, useContext } from "react";
 import { TeamContext } from "./../../contexts/TeamContext";
-import Detail from "./Detail"
+import Detail from "./Detail";
+import Loading from "./../Common/Loading";
 
 
 const TeamsDetail = () => {
@@ -9,7 +10,7 @@ const TeamsDetail = () => {
         <Fragment>
             {
                team.length === 0 ? 
-               (0): 
+               (<Loading/>): 
                (
                     team.teams.map((team) => {
                       const {

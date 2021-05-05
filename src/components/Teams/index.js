@@ -1,6 +1,7 @@
 import React, { Fragment, useContext } from "react";
 import { TeamsContext } from "./../../contexts/TeamsContext";
 import Teams from "./Teams";
+import Loading from "./../Common/Loading";
 
 const CountryTeams = () => {
     const { teams } = useContext(TeamsContext);
@@ -8,7 +9,7 @@ const CountryTeams = () => {
         <Fragment>
             {
                teams.length === 0 ? 
-               (0): 
+               (<Loading/>): 
                (
                <Teams teams={teams.teams} />
                )
