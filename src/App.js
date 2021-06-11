@@ -3,7 +3,6 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import LeaguesContextProvider from "./contexts/LeaguesContext";
 import TeamsContextProvider from "./contexts/TeamsContext";
 import TeamContextProvider from "./contexts/TeamContext";
-//import TeamDetail from "./components/Teams/TeamDetail";
 import NotFound from "./components/NotFound";
 import Header from "./components/Common/Header";
 import Footer from "./components/Common/Footer";
