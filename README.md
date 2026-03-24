@@ -1,70 +1,178 @@
-# Getting Started with Create React App
+# Sports App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Aplicacion React para explorar ligas por pais, listar equipos por liga y ver detalle de cada equipo usando TheSportsDB.
 
-## Available Scripts
+## Demo funcional
 
-In the project directory, you can run:
+- Home moderna con hero responsive.
+- Busqueda de pais con autocompletado personalizado.
+- Carga inmediata de ligas al elegir pais.
+- Navegacion corta y amigable:
+  - `/ligas`
+  - `/equipos/:id`
+  - `/equipo/:id`
+- Loading full-screen con fade/blur.
 
-### `npm start`
+## Stack tecnico
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- React 17
+- React Router DOM 5
+- Material-UI v4
+- Create React App (react-scripts 4.0.3)
+- API: TheSportsDB v1
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Requisitos
 
-### `npm test`
+- Node.js 20.x
+- npm 10 o superior
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+El proyecto incluye:
 
-### `npm run build`
+- `.nvmrc` con `20`
+- `engines` en `package.json`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Instalacion
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+npm install --legacy-peer-deps
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Scripts
 
-### `npm run eject`
+```bash
+# desarrollo
+npm start
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+# build produccion
+npm run build
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# tests
+npm test
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Nota: `start` y `build` usan `NODE_OPTIONS=--openssl-legacy-provider` para compatibilidad con Webpack 4 en Node 20.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Variables de entorno
 
-## Learn More
+Puedes crear un `.env` opcional:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```env
+REACT_APP_THESPORTSDB_API_KEY=123
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Si no existe, el proyecto usa `123` por defecto.
 
-### Code Splitting
+## Rutas de la app
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Rutas publicas actuales:
 
-### Analyzing the Bundle Size
+- `/` -> Home
+- `/ligas` -> Busqueda de ligas por pais
+- `/equipos/:id` -> Equipos de la liga
+- `/equipo/:id` -> Detalle del equipo
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Rutas antiguas (legacy) redirigidas automaticamente:
 
-### Making a Progressive Web App
+- `/leaguescontext/countries` -> `/ligas`
+- `/teamscontext/teams/:id` -> `/equipos/:id`
+- `/teamcontext/team/:id` -> `/equipo/:id`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Arquitectura resumida
 
-### Advanced Configuration
+### Contextos
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- `LeaguesContext`
+  - Carga paises.
+  - Guarda pais seleccionado (`selectedCountry`) para persistir al navegar.
+  - Carga ligas por pais (`validateC`).
 
-### Deployment
+- `TeamsContext`
+  - Carga equipos por liga con estrategia de fusion para evitar limites de la API gratuita:
+    - `eventsseason`
+    - `lookuptable`
+    - `search_all_teams` por id
+    - `search_all_teams` por nombre de liga
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- `TeamContext`
+  - Carga detalle de equipo por id.
+  - Reutiliza estado de navegacion cuando esta disponible para mejorar consistencia.
 
-### `npm run build` fails to minify
+### API wrapper
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+`src/constants/index.js` centraliza endpoints de TheSportsDB.
+
+## Limitaciones conocidas de TheSportsDB (free key)
+
+- `search_all_teams` devuelve como maximo 10 filas.
+- `all_countries` devuelve como maximo 50 filas.
+
+Para mejorar UX:
+
+- Se fusionan multiples endpoints para recuperar mas equipos.
+- Se amplian paises con `Intl.DisplayNames` cuando la API no alcanza.
+
+## Despliegue en Vercel
+
+Archivos relevantes:
+
+- `vercel.json`
+- `package.json` (`engines`, scripts)
+
+Configuracion aplicada:
+
+- `installCommand`: `npm install --legacy-peer-deps`
+- `buildCommand`: `npm run build`
+- `outputDirectory`: `build`
+
+### Pasos recomendados
+
+1. Push a `master` (o rama deseada).
+2. Importar proyecto en Vercel.
+3. Verificar que use Node 20.x (ya viene forzado por `engines`).
+
+## Troubleshooting
+
+### 1) Error: `ERR_PACKAGE_PATH_NOT_EXPORTED` (postcss-safe-parser/postcss)
+
+Ya resuelto en este repo con:
+
+- `overrides` + `resolutions` fijando `postcss-safe-parser` en `6.0.0`
+- `postcss` en dependencias
+
+### 2) Error OpenSSL en Node 20 (`ERR_OSSL_EVP_UNSUPPORTED`)
+
+Ya resuelto en scripts con:
+
+- `cross-env NODE_OPTIONS=--openssl-legacy-provider`
+
+### 3) Vercel usa Yarn y avisa lock mixto
+
+El proyecto fuerza `npm install` en `vercel.json`, por lo que no deberia romper build.
+
+## Estructura principal
+
+```text
+src/
+  components/
+    Common/
+    Leagues/
+    Teams/
+  contexts/
+  constants/
+  utils/
+  App.js
+```
+
+## Calidad y verificacion
+
+Antes de publicar cambios:
+
+```bash
+npm run build
+```
+
+Si compila, la app esta lista para deploy en Vercel.
+
+## Licencia
+
+Uso educativo/demostrativo.
