@@ -5,13 +5,14 @@ import League from "./League";
 const Leagues = ({ leagues }) => (
 
     <Fragment>
-        <Grid container spacing={3} justify="center">
+        <Grid container spacing={3} justify="center" alignItems="stretch">
         { 
         leagues.map((league) => {
           const {
               idLeague, 
               strLeague, 
-              strSport, 
+              strSport,
+              strCountry,
               strLogo,
               strBadge 
           }= league;
@@ -21,6 +22,7 @@ const Leagues = ({ leagues }) => (
               idLeague={idLeague}
               strLeague={strLeague}
               strSport={strSport}
+              strCountry={strCountry}
               strLogo={strLogo}
               strBadge={strBadge}
             />
