@@ -56,7 +56,7 @@ const League = ({ idLeague, strLeague, strSport, strCountry, strLogo, strBadge }
         <Link
           className={classes.link}
           to={{
-            pathname: `/teamscontext/teams/${idLeague}`,
+            pathname: `/equipos/${idLeague}`,
             state: { idLeague, strLeague, strSport, strCountry },
           }}
         >

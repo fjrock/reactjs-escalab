@@ -1,5 +1,5 @@
 import React, { Suspense, lazy } from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import { ThemeProvider } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import LeaguesContextProvider from "./contexts/LeaguesContext";
@@ -39,15 +39,24 @@ const App = () => (
                 <Route exact path="/">
                   <Home />
                 </Route>
-                <Route path="/leaguescontext/countries">
+                <Route exact path="/leaguescontext/countries">
+                  <Redirect to="/ligas" />
+                </Route>
+                <Route path="/ligas">
                   <Leagues />
                 </Route>
-                <Route path="/teamscontext/teams/:id">
+                <Route exact path="/teamscontext/teams/:id">
+                  <Redirect to={(props) => `/equipos/${props.match.params.id}`} />
+                </Route>
+                <Route path="/equipos/:id">
                   <TeamsContextProvider>
                     <Teams />
                   </TeamsContextProvider>
                 </Route>
-                <Route path="/teamcontext/team/:id">
+                <Route exact path="/teamcontext/team/:id">
+                  <Redirect to={(props) => `/equipo/${props.match.params.id}`} />
+                </Route>
+                <Route path="/equipo/:id">
                   <TeamContextProvider>
                     <TeamDetail />
                   </TeamContextProvider>

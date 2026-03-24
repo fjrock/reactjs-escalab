@@ -49,7 +49,7 @@ const Team = ({ team }) => {
         <Link
           className={classes.link}
           to={{
-            pathname: `/teamcontext/team/${idTeam}`,
+            pathname: `/equipo/${idTeam}`,
             state: { team },
           }}
         >

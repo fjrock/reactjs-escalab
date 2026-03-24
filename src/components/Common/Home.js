@@ -181,7 +181,7 @@ const Home = () => {
               </Typography>
               <Button
                 component={RouterLink}
-                to="/leaguescontext/countries"
+                to="/ligas"
                 variant="contained"
                 size="large"
                 className={classes.cta}
